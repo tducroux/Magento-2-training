@@ -1,0 +1,16 @@
+<?php
+    /** @var \Training\Seller\Block\Product\Sellers $block */
+    $sellers = $block->getProductSellers();
+
+    if (count($sellers)>0) :
+?>
+<ul>
+<?php foreach ($sellers as $seller): ?>
+    <li>
+        <a href="<?php echo $block->getSellerUrl($seller->getIdentifier()); ?>">
+            <?php echo $block->escapeHtml($seller->getName()); ?>
+        </a>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>

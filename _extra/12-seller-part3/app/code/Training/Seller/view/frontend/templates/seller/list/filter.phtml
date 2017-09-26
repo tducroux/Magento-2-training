@@ -1,0 +1,42 @@
+<?php
+/** @var \Training\Seller\Block\Seller\Index $block */
+$searchResult = $block->getSearchResult();
+$ascValue = \Magento\Framework\Api\SortOrder::SORT_ASC;
+$descValue = \Magento\Framework\Api\SortOrder::SORT_DESC;
+
+$searchName = $block->getSearchName();
+$sortOrder = $block->getSortOrder();
+?>
+<form class="form" method="GET" action="">
+    <div class="block filter" >
+        <div class="block-content filter-content">
+            <strong role="heading" class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Filter'); ?></strong>
+            <div class="filter-options" >
+                <div class="filter-options-item">
+                    <div data-role="title" class="filter-options-content"><?php /* @escapeNotVerified */ echo __('Name'); ?></div>
+                    <div data-role="content" class="filter-options-content">
+                        <input type="text" id="search_name" name="search_name" value="<?php echo $block->escapeHtml($searchName); ?>" style="width: 100%" />
+                    </div>
+                </div>
+
+                <div class="filter-options-item">
+                    <div data-role="title" class="filter-options-content"><?php /* @escapeNotVerified */ echo __('Sort'); ?></div>
+                    <div data-role="content" class="filter-options-content">
+                        <select id="sort_order" name="sort_order" style="width: 100%">
+                            <option value="<?php /* @escapeNotVerified */ echo $ascValue;  ?>" <?php /* @escapeNotVerified */ echo (($sortOrder == $ascValue)  ? 'selected="selected"': ''); ?>>ASC</option>
+                            <option value="<?php /* @escapeNotVerified */ echo $descValue; ?>" <?php /* @escapeNotVerified */ echo (($sortOrder == $descValue) ? 'selected="selected"': ''); ?>>DESC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-options-item">
+                    <div data-role="content" class="filter-options-content">
+                        <button class="action primary" type="submit" title="Search" style="width: 100%">
+                            <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

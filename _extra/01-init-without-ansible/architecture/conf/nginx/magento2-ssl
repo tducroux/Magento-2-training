@@ -1,0 +1,28 @@
+server {
+    server_name magento2.lxc;
+
+    listen 443 ssl;
+    ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+    ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+
+    location /admin {
+        # Forwarded to varnish on myfront1 port 80
+        proxy_pass http://myfront1:80/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # to let webapp know it's https traffic.
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location / {
+        # Forwarded to varnish on 127.0.0.1 port 80
+        proxy_pass http://127.0.0.1:80/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # to let webapp know it's https traffic.
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

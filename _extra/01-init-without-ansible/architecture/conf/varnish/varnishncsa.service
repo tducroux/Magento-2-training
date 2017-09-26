@@ -1,0 +1,16 @@
+[Unit]
+Description=Varnish HTTP accelerator log daemon
+After=varnish.service
+
+[Service]
+RuntimeDirectory=varnishncsa
+Type=forking
+PIDFile=/run/varnishncsa/varnishncsa.pid
+User=varnishlog
+Group=varnish
+Environment="LOG_FORMAT=%h %l %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-agent}i\" %T %{Varnish:hitmiss}x"
+ExecStart=/usr/bin/varnishncsa -a -w /var/log/varnish/varnishncsa.log -D -P /run/varnishncsa/varnishncsa.pid -F ${LOG_FORMAT}
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

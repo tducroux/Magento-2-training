@@ -1,0 +1,10 @@
+<?php
+    /** @var \Training\Seller\Block\Seller\View $block */
+    $seller = $block->getCurrentSeller();
+?>
+<div>
+    <?php echo /* @escapeNotVerified */ $seller->getDescription(); ?>
+</div>
+<div>
+    <a href="<?php echo $block->getSellersUrl(); ?>"><?php echo __('Back to the list'); ?></a>
+</div>

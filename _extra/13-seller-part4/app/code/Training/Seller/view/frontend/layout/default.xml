@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="training.seller.header.link" before="-">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Sellers</argument>
+                    <argument name="path" xsi:type="helper" helper="Training\Seller\Helper\Url::getSellersUrl" />
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="content.top">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="training.seller.content.top"
+                   template="Training_Seller::header.phtml">
+                <arguments>
+                    <argument name="background_color" xsi:type="string">#FFDDDD</argument>
+                    <argument name="border_color" xsi:type="string">#DDAAAA</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

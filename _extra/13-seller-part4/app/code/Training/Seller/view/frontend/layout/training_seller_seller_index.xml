@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    layout="2columns-left"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+>
+    <head>
+        <title>List of Sellers</title>
+    </head>
+    <body>
+        <referenceBlock name="training.seller.content.top" remove="true" />
+
+        <referenceContainer name="content">
+            <block
+                class="Training\Seller\Block\Seller\Index"
+                name="seller.list"
+                template="Training_Seller::seller/list.phtml"
+                cacheable="false"
+            >
+            </block>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block
+                class="Training\Seller\Block\Seller\Index"
+                name="seller.list.filter"
+                template="Training_Seller::seller/list/filter.phtml"
+                cacheable="false"
+            />
+        </referenceContainer>
+    </body>
+</page>

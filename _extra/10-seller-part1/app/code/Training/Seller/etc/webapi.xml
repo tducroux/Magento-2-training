@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/seller/id/:objectId" method="GET">
+        <service class="Training\Seller\Api\SellerRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Training_Seller::manage"/>
+        </resources>
+    </route>
+
+    <route url="/V1/seller/identifier/:objectIdentifier" method="GET">
+        <service class="Training\Seller\Api\SellerRepositoryInterface" method="getByIdentifier"/>
+        <resources>
+            <resource ref="Training_Seller::manage"/>
+        </resources>
+    </route>
+
+    <route url="/V1/seller/" method="GET">
+        <service class="Training\Seller\Api\SellerRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Training_Seller::manage"/>
+        </resources>
+    </route>
+
+    <route url="/V1/seller/" method="POST">
+        <service class="Training\Seller\Api\SellerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Training_Seller::manage"/>
+        </resources>
+    </route>
+
+    <route url="/V1/seller/id/:objectId" method="DELETE">
+        <service class="Training\Seller\Api\SellerRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Training_Seller::manage"/>
+        </resources>
+    </route>
+
+    <route url="/V1/seller/identifier/:objectIdentifier" method="DELETE">
+        <service class="Training\Seller\Api\SellerRepositoryInterface" method="deleteByIdentifier"/>
+        <resources>
+            <resource ref="Training_Seller::manage"/>
+        </resources>
+    </route>
+</routes>

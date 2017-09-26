@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="config">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="shop" type="shopDeclaration" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniqueOptionName">
+            <xs:selector xpath="shop" />
+            <xs:field xpath="@code" />
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="shopDeclaration">
+        <xs:attribute name="code"    type="xs:string"        use="required" />
+        <xs:attribute name="state"   type="stateDeclaration" use="required" />
+        <xs:attribute name="name"    type="xs:string"        use="required" />
+        <xs:attribute name="address" type="xs:string"        use="required" />
+        <xs:attribute name="city"    type="xs:string"        use="required" />
+    </xs:complexType>
+
+    <xs:simpleType name="stateDeclaration" final="restriction" >
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="open" />
+            <xs:enumeration value="closed" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,48 @@
+[mysqld]
+# Global settings
+key_buffer_size = 64M
+max_allowed_packet = 64M
+table_open_cache=1024
+max_connections=550
+
+# Threads settings
+thread_stack = 192K
+thread_cache_size = 8
+
+# Query cache settings
+query_cache_type = 1
+query_cache_limit = 1M
+query_cache_size = 32M
+
+# InnoDB - Important settings
+# This params need to be setted at install time
+innodb_file_per_table = 1
+innodb_log_file_size = 16M
+innodb_log_buffer_size = 4M
+innodb_data_file_path = ibdata1:128M:autoextend
+innodb_autoextend_increment = 64
+
+# InnoDB - Other settings
+innodb_buffer_pool_size = 512M
+innodb_additional_mem_pool_size = 128M
+innodb_flush_log_at_trx_commit = 1
+innodb_use_sys_malloc=1
+
+# Network and DNS resolution settings
+bind-address = 0.0.0.0
+port = 3306
+skip-name-resolve
+
+# Slow query Log settings
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/mysql-slow.log
+long_query_time = 10
+
+# Binary Log settings
+log_bin = /var/log/mysql/mysql-bin.log
+log_slow_verbosity=full
+log_bin_trust_function_creators=1
+binlog_format = ROW
+expire_logs_days = 10
+relay_log=mysqld-relay-bin
+max_binlog_size=100M

@@ -1,0 +1,19 @@
+<?php
+    /** @var \Training\Seller\Block\Seller\View $block */
+    $seller = $block->getCurrentSeller();
+?>
+<table>
+    <tr>
+        <th>ID</th>
+        <td><?php echo $block->escapeHtml($seller->getSellerId()); ?></td>
+    </tr>
+    <tr>
+        <th>Identifier</th>
+        <td><?php echo $block->escapeHtml($seller->getIdentifier()); ?></td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td><?php echo $block->escapeHtml($seller->getName()); ?></td>
+    </tr>
+</table>
+<a href="<?php echo $block->getSellersUrl(); ?>"><?php /* @escapeNotVerified */ echo __('Back to the list'); ?></a>

@@ -1,0 +1,3 @@
+name=magento2
+template=/var/lib/lxc/templates/jessie.tgz
+mount=.:/var/www/magento2

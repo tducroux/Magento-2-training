@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Training_Shop:etc/shops.xsd">
+    <shop
+        code="sh01"
+        state="open"
+        name="Magasin principal"
+        address="1 rue d'ici"
+        city="Paris"
+    />
+    <shop
+        code="sh02"
+        state="closed"
+        name="Magasin secondaire"
+        address="2 rue d'ici"
+        city="Paris"
+    />
+</config>

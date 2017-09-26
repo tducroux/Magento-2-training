@@ -1,0 +1,29 @@
+<?php
+    /** @var \Training\Seller\Block\Seller\Index $block */
+    $searchResult = $block->getSearchResult();
+?>
+
+<?php if (!$block->getCount()): ?>
+
+    <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find sellers matching the selection.') ?></div></div>
+
+<?php else: ?>
+
+<div class="wrapper grid products-grid">
+    <ol class="products list items product-items">
+<?php foreach ($searchResult->getItems() as $seller): ?>
+        <li class="item product product-item" style="min-width: 240px">
+            <div class="product-item-info" >
+                <strong>
+                    <a href="<?php echo $block->getSellerUrl($seller->getIdentifier()); ?>">
+                            <?php echo $block->escapeHtml($seller->getName()); ?>
+                    </a>
+                </strong>
+            </div>
+        </li>
+<?php endforeach; ?>
+    </ol>
+</div>
+
+<?php endif; ?>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <referenceBlock name="training.seller.content.top">
+            <arguments>
+                <argument name="background_color" xsi:type="string">#DDFFDD</argument>
+                <argument name="border_color" xsi:type="string">#AADDAA</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.details">
+            <block class="Training\Seller\Block\Product\Sellers" group="detailed_info" name="product.info.details.seller" template="product/sellers.phtml" >
+                <arguments>
+                    <argument name="title" xsi:type="string" translate="true">Sellers</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
